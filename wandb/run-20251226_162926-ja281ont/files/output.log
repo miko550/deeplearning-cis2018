@@ -1,0 +1,75 @@
+  ✓ Wandb initialized with run name: run_20251226_162926_bs128_lr0.0001_ep10
+  ✓ Wandb initialized
+
+============================================================
+TRAINING PHASE
+============================================================
+Epoch 1/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:56<00:00, 300.85it/s]
+Model saved to IDS_CICIDS2017.pth
+Epoch 1/10, Train Loss: 0.1135, Val Loss: 0.0943, Learning Rate: 0.000100
+Epoch 2/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [01:05<00:00, 257.99it/s]
+Model saved to IDS_CICIDS2017.pth
+Epoch 2/10, Train Loss: 0.0939, Val Loss: 0.0924, Learning Rate: 0.000100
+Epoch 3/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [01:04<00:00, 261.82it/s]
+Epoch 3/10, Train Loss: 0.0932, Val Loss: 0.0924, Learning Rate: 0.000100
+Epoch 4/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:54<00:00, 308.24it/s]
+Model saved to IDS_CICIDS2017.pth
+Epoch 4/10, Train Loss: 0.0928, Val Loss: 0.0922, Learning Rate: 0.000100
+Epoch 5/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:53<00:00, 314.51it/s]
+Model saved to IDS_CICIDS2017.pth
+Epoch 5/10, Train Loss: 0.0927, Val Loss: 0.0917, Learning Rate: 0.000100
+Epoch 6/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:56<00:00, 298.78it/s]
+Epoch 6/10, Train Loss: 0.0925, Val Loss: 0.0919, Learning Rate: 0.000100
+Epoch 7/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:58<00:00, 287.94it/s]
+Model saved to IDS_CICIDS2017.pth
+Epoch 7/10, Train Loss: 0.0924, Val Loss: 0.0914, Learning Rate: 0.000100
+Epoch 8/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:58<00:00, 289.00it/s]
+Epoch 8/10, Train Loss: 0.0923, Val Loss: 0.0920, Learning Rate: 0.000100
+Epoch 9/10: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:56<00:00, 301.67it/s]
+Model saved to IDS_CICIDS2017.pth
+Epoch 9/10, Train Loss: 0.0922, Val Loss: 0.0913, Learning Rate: 0.000100
+Epoch 10/10: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 16940/16940 [00:58<00:00, 287.37it/s]
+Epoch 10/10, Train Loss: 0.0922, Val Loss: 0.0919, Learning Rate: 0.000100
+
+============================================================
+TESTING PHASE
+============================================================
+
+--- Starting Final Test ---
+Final Test Accuracy: 97.45%
+--- Classification Report ---
+/home/debian/deeplearning-cis2018/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/debian/deeplearning-cis2018/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+/home/debian/deeplearning-cis2018/.venv/lib/python3.13/site-packages/sklearn/metrics/_classification.py:1833: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+                      precision    recall  f1-score   support
+
+              Benign     0.9580    0.9999    0.9785    157266
+    DDOS attack-HOIC     1.0000    1.0000    1.0000     68601
+DDOS attack-LOIC-UDP     1.0000    0.9827    0.9913       173
+      FTP-BruteForce     0.9994    1.0000    0.9997     19336
+       Infilteration     0.0000    0.0000    0.0000      6887
+               Label     0.0000    0.0000    0.0000         4
+      SSH-Bruteforce     0.9999    0.9997    0.9998     18759
+
+            accuracy                         0.9745    271026
+           macro avg     0.7082    0.7118    0.7099    271026
+        weighted avg     0.9501    0.9745    0.9621    271026
+
+--- Confusion Matrix ---
+[[157255      1      0      8      0      0      2]
+ [     0  68601      0      0      0      0      0]
+ [     3      0    170      0      0      0      0]
+ [     0      0      0  19336      0      0      0]
+ [  6887      0      0      0      0      0      0]
+ [     4      0      0      0      0      0      0]
+ [     1      0      0      4      0      0  18754]]
+
+============================================================
+PIPELINE COMPLETE
+============================================================
+✓ Model saved to: IDS_CICIDS2017.pth
+✓ Scaler saved to: scaler.pkl
+============================================================

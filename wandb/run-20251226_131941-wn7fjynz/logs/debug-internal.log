@@ -1,0 +1,12 @@
+{"time":"2025-12-26T13:19:41.748129523+08:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-26T13:19:42.239574017+08:00","level":"INFO","msg":"stream: created new stream","id":"wn7fjynz"}
+{"time":"2025-12-26T13:19:42.239689133+08:00","level":"INFO","msg":"handler: started","stream_id":"wn7fjynz"}
+{"time":"2025-12-26T13:19:42.239806597+08:00","level":"INFO","msg":"stream: started","id":"wn7fjynz"}
+{"time":"2025-12-26T13:19:42.239836367+08:00","level":"INFO","msg":"writer: started","stream_id":"wn7fjynz"}
+{"time":"2025-12-26T13:19:42.239850234+08:00","level":"INFO","msg":"sender: started","stream_id":"wn7fjynz"}
+{"time":"2025-12-26T13:30:11.494551996+08:00","level":"INFO","msg":"stream: closing","id":"wn7fjynz"}
+{"time":"2025-12-26T13:30:13.359919185+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-26T13:30:26.925386207+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/mikorin550-ec/DL4IDS/wn7fjynz/file_stream\": dial tcp 35.186.228.49:443: connect: connection timed out"}
+{"time":"2025-12-26T13:30:30.502807978+08:00","level":"INFO","msg":"handler: closed","stream_id":"wn7fjynz"}
+{"time":"2025-12-26T13:30:30.502935616+08:00","level":"INFO","msg":"sender: closed","stream_id":"wn7fjynz"}
+{"time":"2025-12-26T13:30:30.502944861+08:00","level":"INFO","msg":"stream: closed","id":"wn7fjynz"}
