@@ -13,3 +13,4 @@ wheels/
 *.pkl
 *.npy
 *.csv
+wandb/
