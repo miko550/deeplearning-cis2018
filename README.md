@@ -13,7 +13,7 @@ Network Traffic Classification using Deep Learning on CICIDS2018 Dataset.
 
 1. **Clone repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/miko550/deeplearning-cis2018.git
    cd deeplearning-cis2018
    ```
 
