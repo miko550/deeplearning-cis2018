@@ -81,7 +81,7 @@ def test_and_report(model, test_loader, device, class_names):
     wandb.log({"Accuracy": acc*100})
 
     print('--- Classification Report ---')
-    print(classification_report(all_labels, all_preds, target_names=class_names, digits=4))
+    print(classification_report(all_labels, all_preds, target_names=class_names, digits=4, zero_division=0))
     
     print('--- Confusion Matrix ---')
     print(confusion_matrix(all_labels, all_preds))

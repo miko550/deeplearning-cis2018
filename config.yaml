@@ -1,5 +1,15 @@
+# Model Configuration
+model_name: mlp  # Options: mlp, cnn, rnn, lstm, gru, transformer, cnn_rnn, cnn_lstm, cnn_gru
+
+# Training Configuration
 batch_size: 128
 learning_rate: 0.0001
 num_epochs: 10
+
+# Model-specific parameters (optional, uses defaults if not specified)
+# model_params:
+#   hidden_size: 128
+#   num_layers: 2
+#   dropout_rate: 0.3
 
 

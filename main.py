@@ -21,9 +21,10 @@ import torch.optim as optim
 from datetime import datetime
 
 from preprocess import preprocess
-from model import IDSModel
+from models import create_model, list_available_models
 from train import train_model
 from test import test_and_report
+from utils import calculate_class_weights, analyze_class_distribution
 
 
 def main():
@@ -113,13 +114,37 @@ def main():
     print(f"\n[6/7] Creating model...")
     try:
         num_classes = len(class_names)
-        model = IDSModel(input_features=train.shape[1]-1, num_classes=num_classes).to(device)
+        num_features = train.shape[1] - 1
+        
+        # Get model name from config
+        model_name = config.get('model_name', 'mlp')
+        model_params = config.get('model_params', {})
+        
+        print(f"  Available models: {', '.join(list_available_models())}")
+        print(f"  Selected model: {model_name}")
+        
+        # Create model using factory function
+        model = create_model(
+            model_name=model_name,
+            input_features=num_features,
+            num_classes=num_classes,
+            **model_params
+        ).to(device)
         optimizer = optim.AdamW(model.parameters(), lr=config['learning_rate'])
         num_epochs = config['num_epochs']
-        criterion = torch.nn.CrossEntropyLoss()
+        
+        # Calculate class weights for imbalanced dataset
+        train_labels = train[:, -1].astype(int)
+        class_weights = calculate_class_weights(train_labels, method='balanced')
+        class_weights = class_weights.to(device)
+        
+        # Use weighted loss to handle class imbalance
+        criterion = torch.nn.CrossEntropyLoss(weight=class_weights)
+        print(f"  Using weighted CrossEntropyLoss to handle class imbalance")
+        
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=3)
         
-        print(summary(model, input_size=(train.shape[1]-1,), device=device))
+        print(summary(model, input_size=(num_features,), device=device))
         print(f"  ✓ Model created successfully")
     except Exception as e:
         print(f"  ❌ ERROR creating model: {e}")
@@ -136,11 +161,13 @@ def main():
             project="DL-CIS2018",
             name=run_name,
             config={
+                "model_name": model_name,
                 "batch_size": config['batch_size'],
                 "num_epochs": config['num_epochs'],
                 "learning_rate": config['learning_rate'],
                 "optimizer": "AdamW",
-                "scheduler": "ReduceLROnPlateau"
+                "scheduler": "ReduceLROnPlateau",
+                **model_params
             }
         )
         print(f"  ✓ Wandb initialized with run name: {run_name}")
